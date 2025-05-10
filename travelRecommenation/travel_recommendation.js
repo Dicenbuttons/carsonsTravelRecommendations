@@ -1,5 +1,6 @@
 // Update the handleSearch function to use the updated getRecommendations
 function handleSearch() {
+    console.log('Search button clicked');
     const searchInput = document.querySelector('input[type="text"]').value.toLowerCase();
     let keyword = '';
 
@@ -66,7 +67,21 @@ function getRecommendations(keyword) {
 }
 
 // Add event listener to the search button
-document.querySelector('button[type="button"]').addEventListener('click', handleSearch);
+document.querySelector('button[type="button"].search').addEventListener('click', handleSearch);
+
+// Function to clear the input field and displayed recommendations
+function resetSearch() {
+    // Clear the input field
+    const searchInput = document.querySelector('input[type="text"]');
+    searchInput.value = '';
+
+    // Clear the displayed recommendations
+    const resultsContainer = document.getElementById('results');
+    resultsContainer.innerHTML = ''; // Clear the content of the results container
+}
+
+// Add event listener to the Reset button
+document.querySelector('button[type="button"].reset').addEventListener('click', resetSearch);
 
 // Function to display recommendations (same as before)
 function displayRecommendations(recommendations) {
