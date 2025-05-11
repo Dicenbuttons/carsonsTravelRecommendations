@@ -6,9 +6,12 @@ function handleSearch() {
 
     // Define keyword variations
     const keywords = {
-        beach: ['beach', 'beaches'],
-        temple: ['temple', 'temples'],
-        country: ['country', 'countries']
+        beach: ['beach', 'beaches','sandy','ocean'],
+        temple: ['temple', 'temples','ruins','ancient'],
+        country: ['country', 'countries','everywhere'],
+        japan: ['japanese', 'nihon', 'japan'],
+        brazil: ['brazil', 'brazillian', 'mardigras'],
+        australia: ['australia', 'australian','down under'],
     };
 
     // Determine the keyword based on input
@@ -18,6 +21,12 @@ function handleSearch() {
         keyword = 'temple';
     } else if (keywords.country.includes(searchInput)) {
         keyword = 'country';
+    } else if (keywords.japan.includes(searchInput)) {
+        keyword = 'japan';
+    } else if (keywords.brazil.includes(searchInput)) {
+        keyword = 'brazil';
+    } else if (keywords.australia.includes(searchInput)) {
+        keyword = 'australia';
     } else {
         alert('No recommendations found for the entered keyword.');
         return;
@@ -42,7 +51,25 @@ function getRecommendations(keyword) {
             let recommendations = [];
 
             // Check the keyword and filter the appropriate category
-            if (keyword === 'country') {
+            if (keyword === 'japan') {
+                data.countries.forEach(country => {
+                    if (country.name === 'Japan'){
+                        recommendations = recommendations.concat(country.cities);
+                    }
+                });
+            } else if (keyword === 'brazil') {
+                data.countries.forEach(country => {
+                    if (country.name === 'Brazil'){
+                        recommendations = recommendations.concat(country.cities);
+                    }
+                });
+            } else if (keyword === 'australia') {
+                data.countries.forEach(country => {
+                    if (country.name === 'Australia'){
+                        recommendations = recommendations.concat(country.cities);
+                    }
+                });
+            } else if (keyword === 'country') {
                 data.countries.forEach(country => {
                     recommendations = recommendations.concat(country.cities);
                 });
