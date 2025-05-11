@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Travel Recommendations</title>
     <style>
+        html {
+            min-height: 100%;
+        }
         /* Basic styling for the navbar */
         .navbar {
             display: flex;
@@ -25,17 +28,19 @@
             background-color: #f4f4f4;
             padding: 50px;
             text-align: center;
+            min-height: 100%;
         }
         .contact-form {
-            background-color: white;
+            background-color: rgba(0, 0, 0, 0.5);
             padding: 20px;
             border-radius: 10px;
             max-width: 400px;
-            margin: 0 auto;
+            margin: 10px auto;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
         }
         .contact-form input, .contact-form textarea {
-            width: 100%;
+            width: calc(100% - 20px);
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
@@ -73,8 +78,8 @@
             <a href="contactUs.html">Contact Us</a>
         </div>
     </div>
-    <h1>Contact Us</h1>
     <div class="contact-form">
+        <h1>Contact Us</h1>
         <form action="#" method="post">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
